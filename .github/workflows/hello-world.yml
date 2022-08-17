@@ -1,5 +1,8 @@
 name: JAVA CI
-on: push
+on:
+  pull_request:
+    branches:
+      - main
 env:
   docker_username: ${{ secrets.DOCKER_USER }}
   docker_password: ${{ secrets.DOCKER_AUTHKEY }}
@@ -75,6 +78,6 @@ jobs:
         with:
           name: code
           path: .
-      - name: Execute component test
+      - name: Execute performance test
         run: chmod +x ci/performance-test.sh && ci/performance-test.sh
 
