@@ -56,7 +56,7 @@ jobs:
         run: chmod +x ci/build-docker.sh && ci/build-docker.sh
 
   Performance-test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     needs: [Docker-image]
     steps:
       - name: download-compiled
